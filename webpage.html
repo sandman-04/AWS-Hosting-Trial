@@ -1,0 +1,275 @@
+<HTML>
+<HEAD>
+<TITLE>WEB PAGE DESIGN WITH JAVA SCRIPT</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+var city=new Array();
+city[0]=["Banglore","Bellary","Coorg","Manglore","Mysore"];
+city[1]=["Cochin","Kottayam","Thrissur","Palakkad","Alappuzha"];
+city[2]=["Kovai","Erode","Salem","Madurai","Chennai"];
+function updatecity()
+{
+	var text;
+	document.form1.cit.options.length=0;
+	for(i=0;i<city[document.form1.state.selectedIndex].length;i++)
+	{
+		text=city[document.form1.state.selectedIndex][i];
+		document.form1.cit.options[document.form1.cit.options.length]=new Option(text,text);
+	}
+}
+function changeyear()
+{
+	var year=document.form1.dobyear.value;
+	if(year<1950)
+	alert("Enter proper year");
+	else if(year>1995)
+	alert("Enter proper year");
+	for(i=1;i<year.length;i++)
+	if(!(year.charAt(i)>='0' && year.charAt(i)<='9'))
+	{
+		alert("Enter a proper year");
+		document.form1.dobyear.focus();
+		return;
+	}
+}
+function rolln()
+{
+	var rollno=document.form1.roll.value;
+	for(i=1;i<rollno.length;i++)
+	{
+		if(!(rollno.charAt(i)>='0' && rollno.charAt(i)<='9'))
+		{
+			alert("Rollno should contain only digits");
+			document.form1.roll.focus();
+			return;
+ 		}
+	}	
+}
+function pinc()
+{	
+	var pincode=document.form1.pin.value;
+	for(i=1;i<pincode.length;i++)
+	{
+		if(!(pincode.charAt(i)>='0' && pincode.charAt(i)<='9'))
+		{
+			alert("Pincode should contain only digits");
+			document.form1.pin.focus();
+			return;
+ 		}
+	}
+}
+function email()
+{	
+	var emailc=document.form1.mail.value;
+	for(i=1;i<emailc.length;i++)
+	{
+		if(emailc.charAt(i)=='@')
+		{
+			var flag=1;
+			document.form1.mail.focus();
+			return;
+ 		}
+	}
+	if(flag!=1)
+	alert("Enter a valid email address");
+}
+function validate()
+{
+	if(document.form1.roll.value.length==0)
+	{
+		alert("Enter your rollno");
+		document.form1.roll.focus();
+		return;	
+	}
+	if(document.form1.fname.value.length==0)
+	{
+		alert("Enter first name");
+		document.form1.fname.focus();
+		return;
+	}
+	if(document.form1.lname.value.length==0)
+	{
+		alert("Enter last name");
+		document.form1.lname.focus();
+		return;
+	}
+	if(document.form1.dep.selectedIndex==0)
+	{
+		alert("Enter the department");
+		document.form1.dep.focus();
+		return;
+	}
+	if(document.form1.dobdate.selectedIndex==0)
+	{
+		alert("Enter the date");
+		document.form1.dobdate.focus();
+		return;
+	}
+	if(document.form1.dobmonth.selectedIndex==0)
+	{
+		alert("Enter the month");
+		document.form1.dobmonth.focus();
+		return;
+	}
+	if(document.form1.city.selectedIndex==0)
+	{
+		alert("Enter the city");
+		document.form1.city.focus();
+		return;
+	}
+	if(document.form1.address.value.length==0)
+	{
+		alert("Enter the address");
+		document.form1.address.focus();
+		return;
+	}
+	if(document.form1.pin.value.length==0)
+	{
+		alert("Enter your pincode");
+		document.form1.pin.focus();
+		return;
+	}
+	if(document.form1.mail.value.length==0)
+	{
+		alert("Enter your e-mail");
+		document.form1.mail.focus();
+		return;
+	}
+	document.writeln("<HR></HR>");
+	document.writeln("<BODY BGCOLOR='#C0C0C0'><H1>YOUR DATA IS SENT SUCCESSFULLY TO THE SERVER!!!</H1></BODY>");
+	document.writeln("<HR></HR>");
+}	
+</SCRIPT>
+</HEAD>
+<BODY bgcolor="#C0C0C0" onload="updatecity()">
+<FORM name="form1">
+<TABLE cellspacing="20">
+<H1><CENTER>VELLORE INSTITUTE OF TECHNOLOGY</CENTER></H1>
+<TR>
+<H1><CENTER>STUDENT INFORMATION SYSTEM</CENTER></H1>
+<HR></HR>
+</TR>
+<TR>
+	<TD>ROLL NO</TD>
+	<TD><INPUT type="text" name="roll" maxlength="20" onchange="rolln()"/></TD>
+</TR>
+<TR>
+	<TD>FIRST NAME</TD>
+	<TD><INPUT type="text" name="fname" maxlength="20"/></TD>
+	<TD>LAST NAME</TD>
+	<TD><INPUT type="text" name="lname" maxlength="20"/></TD>
+</TR>
+<TR>
+	<TD>DEPARTMENT</TD>
+	<TD><SELECT name="dep">
+		<OPTION>CSE</OPTION>
+		<OPTION>ECE</OPTION>
+		<OPTION>EEE</OPTION>
+		<OPTION>MECH</OPTION>
+		<OPTION>IT</OPTION>
+		<OPTION>MCA</OPTION>
+		<OPTION>MBA</OPTION>
+	    </SELECT>
+	</TD>
+</TR>
+<TR>
+	<TD>GENDER</TD>
+	<TD><INPUT type="radio" name="gender" checked/>MALE</TD>
+	<TD><INPUT type="radio" name="gender"/>FEMALE</TD>
+</TR>
+<TR>
+	<TD>DATE OF BIRTH</TD>
+	<TD><SELECT name="dobdate">
+		<OPTION>Date</OPTION>
+		<OPTION>1</OPTION>
+		<OPTION>2</OPTION>
+		<OPTION>3</OPTION>
+		<OPTION>4</OPTION>
+		<OPTION>5</OPTION>
+		<OPTION>6</OPTION>
+		<OPTION>7</OPTION>
+		<OPTION>8</OPTION>
+		<OPTION>9</OPTION>
+		<OPTION>10</OPTION>
+		<OPTION>11</OPTION>
+		<OPTION>12</OPTION>
+		<OPTION>13</OPTION>
+		<OPTION>14</OPTION>
+		<OPTION>15</OPTION>
+		<OPTION>16</OPTION>
+		<OPTION>17</OPTION>
+		<OPTION>18</OPTION>
+		<OPTION>19</OPTION>
+		<OPTION>20</OPTION>
+		<OPTION>21</OPTION>
+		<OPTION>22</OPTION>
+		<OPTION>23</OPTION>
+		<OPTION>24</OPTION>
+		<OPTION>25</OPTION>
+		<OPTION>26</OPTION>
+		<OPTION>27</OPTION>
+		<OPTION>28</OPTION>
+		<OPTION>29</OPTION>
+		<OPTION>30</OPTION>
+		<OPTION>31</OPTION>
+	    </SELECT>
+	</TD>
+	<TD><SELECT name="dobmonth">
+		<OPTION>Month</OPTION>
+		<OPTION>JAN</OPTION>
+		<OPTION>FEB</OPTION>
+		<OPTION>MAR</OPTION>
+		<OPTION>APR</OPTION>
+		<OPTION>MAY</OPTION>
+		<OPTION>JUN</OPTION>
+		<OPTION>JUL</OPTION>
+		<OPTION>AUG</OPTION>
+		<OPTION>SEP</OPTION>
+		<OPTION>OCT</OPTION>
+		<OPTION>NOV</OPTION>
+		<OPTION>DEC</OPTION>
+		
+	    </SELECT>
+	</TD>
+	<TD>YEAR
+	<INPUT type="text" name="dobyear" maxlength="4" onchange="changeyear()"/>
+	</TD>
+</TR>
+<TR>
+	<TD>ADDRESS</TD>
+	<TD><TEXTAREA rows="5" name="address"/></TEXTAREA></TD>
+</TR>	
+<TR>
+	<TD>STATE</TD>
+	<TD><SELECT name="state" onchange="updatecity()">
+		<OPTION>KARNATAKA</OPTION>
+		<OPTION selected>KERALA</OPTION>
+		<OPTION>TAMILNADU</OPTION>
+	    </SELECT>
+	</TD>
+</TR>	
+<TR>
+	<TD>CITY</TD>
+	<TD><SELECT name="city" id="cit"></SELECT>
+	</TD>
+</TR>
+<TR>
+	<TD>PINCODE</TD>
+	<TD><INPUT type="text" name="pin" maxlength="6" onchange="pinc()"/>
+	</TD>
+</TR>
+<TR>
+	<TD>E-MAIL</TD>
+	<TD><INPUT type="text" name="mail" maxlength="25" onchange="email()"/>
+	</TD>
+</TR>
+</TABLE>
+<DIV Align="center">
+<BR>
+<BR>
+<INPUT type="submit" value="SUBMIT" onclick="validate()">
+<INPUT type="reset" value="CLEAR">
+</DIV>
+</FORM>
+</BODY>
+</HTML>
+
